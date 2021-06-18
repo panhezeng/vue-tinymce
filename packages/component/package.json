@@ -1,0 +1,85 @@
+{
+  "name": "@panhezeng/vue-tinymce",
+  "version": "2.9.9",
+  "description": "A Vue component",
+  "keywords": [
+    "vuejs",
+    "vue component",
+    "tinymce",
+    "rich text editor"
+  ],
+  "homepage": "https://github.com/panhezeng/vue-tinymce#readme",
+  "bugs": {
+    "url": "https://github.com/panhezeng/vue-tinymce/issues",
+    "email": "panhezeng@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "潘何增",
+    "email": "panhezeng@gmail.com",
+    "url": "http://apsay.com/"
+  },
+  "contributors": [],
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README"
+  ],
+  "main": "",
+  "browser": "dist/vue-tinymce.es.js",
+  "bin": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panhezeng/vue-tinymce.git"
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build && node scripts/build-types.js",
+    "lint": "cross-env NODE_ENV=production eslint --fix --ext .js,.vue,.ts,.tsx src/",
+    "format": "prettier --write \"src*/**/*.{js,vue,ts,tsx,html,css,less,md,json}\""
+  },
+  "config": {},
+  "devDependencies": {
+    "@types/node": "^14.14.45",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.1.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.11.1",
+    "prettier": "^2.3.1",
+    "tinymce": "^5.0.0",
+    "ts-morph": "^11.0.0",
+    "typescript": "^4.3.3",
+    "vite": "^2.3.7",
+    "vue": "^3.1.0",
+    "vue-tsc": "^0.0.24"
+  },
+  "peerDependencies": {
+    "tinymce": "^5.0.0",
+    "vue": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6",
+    "yarn": ">=1"
+  },
+  "private": false,
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.org/"
+  }
+}

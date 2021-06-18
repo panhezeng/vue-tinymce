@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>示例</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var location = window.location;
+        var domain = location.protocol + "//" + location.host + "/vue-tinymce";
+        var href =
+          domain +
+          "/?spa_redirect=" +
+          encodeURIComponent(location.href.replace(domain, ""));
+        // console.log(href);
+        location.href = href;
+      })();
+    </script>
+  </body>
+</html>

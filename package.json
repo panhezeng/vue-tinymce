@@ -1,0 +1,37 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "component:lint": "lerna exec --scope @panhezeng/vue-tinymce -- yarn lint",
+    "component:build": "lerna exec --scope @panhezeng/vue-tinymce -- yarn build",
+    "example:dev": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn dev",
+    "example:lint": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn lint",
+    "example:build": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn build",
+    "format": "prettier --write \"*.{js,ts,jsx,tsx,vue,ts,tsx,html,css,less,md,json}\"",
+    "prepare": "husky install",
+    "lerna:add": "lerna add @panhezeng/vue-tinymce --scope=@panhezeng/vue-tinymce-example",
+    "lerna:publish": "lerna publish",
+    "lerna:version": "lerna version",
+    "commit": "commit",
+    "build": "yarn component:build && yarn example:build"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/prompt-cli": "^12.1.4"
+  },
+  "lint-staged": {
+    "packages/example/src*/**/*.{js,ts,jsx,tsx,vue}": "yarn example:lint",
+    "*.{js,ts,jsx,tsx,vue,html,css,less,md,json}": "yarn format"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {},
+  "publishConfig": {
+    "registry": "https://registry.npm.org/"
+  }
+}

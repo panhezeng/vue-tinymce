@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    //    "noEmit": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [],
+    "baseUrl": "./packages",
+    "paths": {
+      //      "@panhezeng/vue-tinymce": ["./component/dist/vue-tinymce.es.js"]
+      "@panhezeng/vue-tinymce": ["./component/src"]
+    }
+  },
+  "exclude": ["dist", "node_modules"]
+}
