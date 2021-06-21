@@ -1,6 +1,6 @@
 {
   "packages": ["packages/*"],
-  "version": "independent",
+  "version": "3.0.0",
   "command": {
     "publish": {
       "registry": "https://npm.pkg.github.com"

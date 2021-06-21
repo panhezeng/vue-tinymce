@@ -56,7 +56,7 @@ export default {
 ### external vue 方式
 
 ```html
-<script src="https://cdn.jsdelivr.net/combine/npm/vue@~3/dist/vue.min.js,npm/tinymce@~5/tinymce.min.js,npm/@panhezeng/vue-tinymce@~3/dist/vue-tinymce.min.js"></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/vue@~3/dist/vue.global.min.js,npm/tinymce@~5/tinymce.min.js,npm/@panhezeng/vue-tinymce@~3/dist/vue-tinymce.umd.js"></script>
 
 export default { components: { VueTinymce: window.VueTinymce }, };
 ```

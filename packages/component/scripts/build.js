@@ -1,3 +1,5 @@
+const shell = require("shelljs");
+
 const path = require("path");
 const fs = require("fs");
 const glob = require("fast-glob");
@@ -100,3 +102,9 @@ async function main() {
     }
   }
 }
+
+shell.cp(
+  "-rf",
+  path.resolve(__dirname, "../../../README.md"),
+  path.resolve(__dirname, "../README.md")
+);
