@@ -78,95 +78,97 @@ export default defineComponent({
       };
 
     function setTinymceConfig() {
-      // 用外部配置覆盖内部默认配置
-      Object.assign(tinymceConfig, props.config);
-      // ============================================================================
-      const zhCN = "zh_CN";
-      const enUS = "en_US";
-      // 如果配置为默认英语，则删除语言相关配置节点
-      if (tinymceConfig.language === enUS) {
-        delete tinymceConfig.language;
-        delete tinymceConfig.language_url;
-      } else {
-        // 如果语言没有配置，则默认配置为中文
-        if (!tinymceConfig.language) {
-          tinymceConfig.language = zhCN;
-        }
-        // 如果没有配置 language_url ，并且是 zhCN ，则使用本项目的语言包
-        if (!tinymceConfig.language_url && tinymceConfig.language === zhCN) {
-          let langCDN = "https://cdn.jsdelivr.net/npm/";
-          if (/unpkg.com/.test(props.url)) {
-            langCDN = "https://unpkg.com/";
+      if (editorElement.value) {
+        // 用外部配置覆盖内部默认配置
+        Object.assign(tinymceConfig, props.config);
+        // ============================================================================
+        const zhCN = "zh_CN";
+        const enUS = "en_US";
+        // 如果配置为默认英语，则删除语言相关配置节点
+        if (tinymceConfig.language === enUS) {
+          delete tinymceConfig.language;
+          delete tinymceConfig.language_url;
+        } else {
+          // 如果语言没有配置，则默认配置为中文
+          if (!tinymceConfig.language) {
+            tinymceConfig.language = zhCN;
           }
-          tinymceConfig.language_url = `${langCDN}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
-        }
-
-        // 如果没有配置 font_formats ，并且是 zhCN ，则使用内部配置
-        if (!tinymceConfig.font_formats && tinymceConfig.language === zhCN) {
-          tinymceConfig.font_formats =
-            'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
-          if (window.navigator.platform.indexOf("Win") > -1) {
-            tinymceConfig.font_formats =
-              '微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;' +
-              tinymceConfig.font_formats;
-            tinymceConfig.content_style =
-              'body { font-size: 14px; font-family: "Microsoft YaHei"; }';
-          } else if (window.navigator.platform.indexOf("Mac") > -1) {
-            tinymceConfig.font_formats =
-              "黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;" +
-              tinymceConfig.font_formats;
-            tinymceConfig.content_style =
-              "body { font-size: 14px; font-family: STHeiti; }";
-          } else if (window.navigator.platform.indexOf("Linux") > -1) {
-            tinymceConfig.font_formats =
-              '黑体="Source Han Sans SC";宋体="Source Han Serif SC";' +
-              tinymceConfig.font_formats;
-            tinymceConfig.content_style =
-              'body { font-size: 14px; font-family: "Source Han Sans SC"; }';
-          }
-        }
-      }
-
-      if (!tinymceConfig.external_plugins) {
-        tinymceConfig.external_plugins = {};
-      }
-
-      if (!tinymceConfig.external_plugins["textindentoutdent"]) {
-        const keys = Object.keys(tinymceConfig);
-        for (let i = keys.length - 1; i >= 0; i--) {
-          const key = keys[i];
-          // 如果 toolbar 配置了 textindent textoutdent 按钮，则加载 textindentoutdent 插件
-          if (
-            key.indexOf("toolbar") !== -1 &&
-            /\btext(indent|outdent)\b/g.test(tinymceConfig[key])
-          ) {
-            if (tinymceConfig.language === zhCN) {
-              tinymceConfig.external_plugins["textindentoutdentzhcn"] =
-                "https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js";
+          // 如果没有配置 language_url ，并且是 zhCN ，则使用本项目的语言包
+          if (!tinymceConfig.language_url && tinymceConfig.language === zhCN) {
+            let langCDN = "https://cdn.jsdelivr.net/npm/";
+            if (/unpkg.com/.test(props.url)) {
+              langCDN = "https://unpkg.com/";
             }
-            tinymceConfig.external_plugins["textindentoutdent"] =
-              "https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js";
-            break;
+            tinymceConfig.language_url = `${langCDN}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
           }
-        }
-      }
 
-      tinymceConfig.target = editorElement.value;
-      tinymceConfig.init_instance_callback = (instance) => {
-        if (editorElement.value) {
-          editor = instance;
-          setContent();
-          editor.on(
-            props.updateEvent,
-            tinymce.util.Delay.debounce(() => {
-              contentChange();
-            }, 300)
-          );
-          if (typeof props.config.init_instance_callback === "function") {
-            props.config.init_instance_callback(editor);
+          // 如果没有配置 font_formats ，并且是 zhCN ，则使用内部配置
+          if (!tinymceConfig.font_formats && tinymceConfig.language === zhCN) {
+            tinymceConfig.font_formats =
+              'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
+            if (window.navigator.platform.indexOf("Win") > -1) {
+              tinymceConfig.font_formats =
+                '微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;' +
+                tinymceConfig.font_formats;
+              tinymceConfig.content_style =
+                'body { font-size: 14px; font-family: "Microsoft YaHei"; }';
+            } else if (window.navigator.platform.indexOf("Mac") > -1) {
+              tinymceConfig.font_formats =
+                "黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;" +
+                tinymceConfig.font_formats;
+              tinymceConfig.content_style =
+                "body { font-size: 14px; font-family: STHeiti; }";
+            } else if (window.navigator.platform.indexOf("Linux") > -1) {
+              tinymceConfig.font_formats =
+                '黑体="Source Han Sans SC";宋体="Source Han Serif SC";' +
+                tinymceConfig.font_formats;
+              tinymceConfig.content_style =
+                'body { font-size: 14px; font-family: "Source Han Sans SC"; }';
+            }
           }
         }
-      };
+
+        if (!tinymceConfig.external_plugins) {
+          tinymceConfig.external_plugins = {};
+        }
+
+        if (!tinymceConfig.external_plugins["textindentoutdent"]) {
+          const keys = Object.keys(tinymceConfig);
+          for (let i = keys.length - 1; i >= 0; i--) {
+            const key = keys[i];
+            // 如果 toolbar 配置了 textindent textoutdent 按钮，则加载 textindentoutdent 插件
+            if (
+              key.indexOf("toolbar") !== -1 &&
+              /\btext(indent|outdent)\b/g.test(tinymceConfig[key])
+            ) {
+              if (tinymceConfig.language === zhCN) {
+                tinymceConfig.external_plugins["textindentoutdentzhcn"] =
+                  "https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js";
+              }
+              tinymceConfig.external_plugins["textindentoutdent"] =
+                "https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js";
+              break;
+            }
+          }
+        }
+
+        tinymceConfig.target = editorElement.value;
+        tinymceConfig.init_instance_callback = (instance) => {
+          if (editorElement.value) {
+            editor = instance;
+            setContent();
+            editor.on(
+              props.updateEvent,
+              tinymce.util.Delay.debounce(() => {
+                contentChange();
+              }, 300)
+            );
+            if (typeof props.config.init_instance_callback === "function") {
+              props.config.init_instance_callback(editor);
+            }
+          }
+        };
+      }
     }
 
     function setContent() {
