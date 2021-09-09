@@ -81,5 +81,6 @@
   ],
   "publishConfig": {
     "registry": "https://registry.npm.org/"
-  }
+  },
+  "gitHead": "49487bd8e3634862bae3a9a10ff1e20d74e9bb68"
 }

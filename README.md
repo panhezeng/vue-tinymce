@@ -61,26 +61,6 @@ export default {
 export default { components: { VueTinymce: window.VueTinymce }, };
 ```
 
-## 编译
-
-```bash
-# install dependencies
-npm install
-
-# 运行插件使用示例
-npm run dev:example
-
-# 编译插件
-npm run build
-
-# 发版
-npm set registry https://registry.npmjs.org/ && npm set @panhezeng:registry https://registry.npmjs.org/ && npm publish --access public && npm set registry https://registry.npm.taobao.org/ && npm set @panhezeng:registry https://registry.npm.taobao.org/
-
-# 发版patch
-npm set registry https://registry.npmjs.org/ && npm set @panhezeng:registry https://registry.npmjs.org/ && npm version patch && npm publish --access public && npm set registry https://registry.npm.taobao.org/ && npm set @panhezeng:registry https://registry.npm.taobao.org/
-
-```
-
 ## IDE
 
 ### WebStorm
@@ -118,5 +98,9 @@ lerna exec --scope packagename
 
 lerna add packageaname --scope=packagebname
 
+npm set registry https://registry.npmjs.org/ && npm set @panhezeng:registry https://registry.npmjs.org/
+
 lerna publish
+
+npm set registry https://registry.npm.taobao.org/ && npm set @panhezeng:registry https://registry.npm.taobao.org/
 ```
