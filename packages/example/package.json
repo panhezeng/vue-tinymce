@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && node scripts/build.js",
     "serve": "vite preview",
-    "lint": "cross-env NODE_ENV=production eslint --fix --ext .js,.vue,.ts,.tsx src/",
+    "lint": "cross-env NODE_ENV=production eslint --fix --ext .js,.vue,.ts,.tsx ./",
     "format": "prettier --write \"src*/**/*.{js,vue,ts,tsx,html,css,less,md,json}\""
   },
   "dependencies": {

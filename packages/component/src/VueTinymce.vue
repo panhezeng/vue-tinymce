@@ -179,22 +179,26 @@ export default defineComponent({
         // 如果没有配置 font_formats ，并且是 zhCN ，则使用内部配置
         if (!tinymceConfig.font_formats && tinymceConfig.language === zhCN) {
           tinymceConfig.font_formats =
-            "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats";
+            'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
           if (window.navigator.platform.indexOf("Win") > -1) {
             tinymceConfig.font_formats =
-              "微软雅黑=Microsoft Yahei;黑体=SimHei;宋体=SimSun;楷体=KaiTi;隶书=STLiti;" +
+              '微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;' +
               tinymceConfig.font_formats;
+            tinymceConfig.content_style =
+              'body { font-size: 14px; font-family: "Microsoft YaHei"; }';
           } else if (window.navigator.platform.indexOf("Mac") > -1) {
             tinymceConfig.font_formats =
-              "苹方=PingFang SC;黑体=STHeiti;宋体=STSong;楷体=STKaiti;隶书=STLiti;" +
+              "黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;" +
               tinymceConfig.font_formats;
+            tinymceConfig.content_style =
+              "body { font-size: 14px; font-family: STHeiti; }";
           } else if (window.navigator.platform.indexOf("Linux") > -1) {
             tinymceConfig.font_formats =
-              "黑体=Source Han Sans SC;宋体=Source Han Serif SC;" +
+              '黑体="Source Han Sans SC";宋体="Source Han Serif SC";' +
               tinymceConfig.font_formats;
+            tinymceConfig.content_style =
+              'body { font-size: 14px; font-family: "Source Han Sans SC"; }';
           }
-          // tinymceConfig.content_style =
-          //   'body { font-size: 14px; font-family:"微软雅黑", "苹方", Verdana, Arial, Helvetica, sans-serif;}';
         }
       }
 

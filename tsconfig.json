@@ -14,12 +14,12 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "types": [],
+    //    "types": [],
     "baseUrl": "./packages",
     "paths": {
       //      "@panhezeng/vue-tinymce": ["./component/dist/vue-tinymce.es.js"]
       "@panhezeng/vue-tinymce": ["./component/src"]
     }
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist/**/*", "node_modules"]
 }
