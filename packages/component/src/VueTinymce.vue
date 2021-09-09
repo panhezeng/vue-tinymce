@@ -11,6 +11,8 @@ import {
   nextTick,
   onBeforeUnmount,
   watchEffect,
+  onMounted,
+  watch,
 } from "vue";
 import tinymce, { Editor, RawEditorSettings } from "tinymce";
 export default defineComponent({
@@ -75,86 +77,9 @@ export default defineComponent({
           "formatselect | bold italic underline strikethrough | forecolor backcolor | textindent textoutdent | indent outdent | alignleft aligncenter alignright alignjustify | bullist numlist | anchor codesample | ltr rtl",
       };
 
-    function setContent() {
-      nextTick().then(() => {
-        // 如果编辑器实例已经为真，并且编辑器内容和父组件传入的内容不一样
-        if (
-          editorElement.value &&
-          editor &&
-          editor.getContent() !== props.modelValue
-        ) {
-          editor.setContent(props.modelValue);
-        }
-      });
-    }
-
-    function contentChange() {
-      nextTick().then(() => {
-        // 同步到父组件
-        if (editorElement.value && editor) {
-          const content = editor.getContent();
-          context.emit("update:modelValue", content);
-          context.emit("content-change", content);
-        }
-      });
-    }
-
-    function destroy() {
-      try {
-        // 销毁
-        if (editorElement.value && editor) {
-          if (editor.plugins.autosave) {
-            editor.plugins.autosave.removeDraft();
-          }
-          tinymce.PluginManager.remove("autosave");
-          editor.remove();
-          editor.destroy();
-          editor = null;
-        }
-      } catch (e) {
-        return;
-      }
-    }
-
-    function init() {
-      nextTick().then(() => {
-        // 编辑器实例初始化
-        const refEditor = editorElement.value;
-        if (refEditor) {
-          destroy();
-          tinymceConfig.target = refEditor;
-          tinymceConfig.init_instance_callback = (instance) => {
-            if (editorElement.value) {
-              editor = instance;
-
-              if (props.config.init_instance_callback) {
-                props.config.init_instance_callback(editor);
-              }
-
-              setContent();
-              editor.on(
-                props.updateEvent,
-                tinymce.util.Delay.debounce(() => {
-                  contentChange();
-                }, 300)
-              );
-            }
-          };
-          tinymce.init(tinymceConfig);
-        }
-      });
-    }
-
-    onBeforeUnmount(() => {
-      destroy();
-    });
-
-    watchEffect(() => {
-      // 从指定url加载tinymce依赖文件
-      tinymce.EditorManager.baseURL = props.url;
+    function setTinymceConfig() {
       // 用外部配置覆盖内部默认配置
       Object.assign(tinymceConfig, props.config);
-
       // ============================================================================
       const zhCN = "zh_CN";
       const enUS = "en_US";
@@ -226,9 +151,92 @@ export default defineComponent({
         }
       }
 
+      tinymceConfig.target = editorElement.value;
+      tinymceConfig.init_instance_callback = (instance) => {
+        if (editorElement.value) {
+          editor = instance;
+          setContent();
+          editor.on(
+            props.updateEvent,
+            tinymce.util.Delay.debounce(() => {
+              contentChange();
+            }, 300)
+          );
+          if (typeof props.config.init_instance_callback === "function") {
+            props.config.init_instance_callback(editor);
+          }
+        }
+      };
+    }
+
+    function setContent() {
       nextTick().then(() => {
-        init();
+        // 如果编辑器实例已经为真，并且编辑器内容和父组件传入的内容不一样
+        if (
+          editorElement.value &&
+          editor &&
+          editor.getContent() !== props.modelValue
+        ) {
+          editor.setContent(props.modelValue);
+        }
       });
+    }
+
+    function contentChange() {
+      nextTick().then(() => {
+        // 同步到父组件
+        if (editorElement.value && editor) {
+          const content = editor.getContent();
+          context.emit("update:modelValue", content);
+          context.emit("content-change", content);
+        }
+      });
+    }
+
+    function destroy() {
+      try {
+        // 销毁
+        if (editorElement.value && editor) {
+          if (editor.plugins.autosave) {
+            editor.plugins.autosave.removeDraft();
+          }
+          tinymce.PluginManager.remove("autosave");
+          editor.remove();
+          editor.destroy();
+          editor = null;
+        }
+      } catch (e) {
+        return;
+      }
+    }
+
+    function init() {
+      nextTick().then(() => {
+        // 编辑器实例初始化
+        if (editorElement.value) {
+          destroy();
+          setTinymceConfig();
+          tinymce.init(tinymceConfig);
+        }
+      });
+    }
+
+    watch(
+      () => props.config,
+      () => {
+        init();
+      },
+      { deep: true }
+    );
+
+    onMounted(() => {
+      // 从指定url加载tinymce依赖文件
+      tinymce.EditorManager.baseURL = props.url;
+      init();
+    });
+
+    onBeforeUnmount(() => {
+      destroy();
     });
 
     return { editorElement };
