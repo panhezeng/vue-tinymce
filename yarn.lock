@@ -5496,9 +5496,9 @@ through@2, "through@>=2.2.7 <3", through@^2.3.4, through@^2.3.6, through@^2.3.8:
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
 tinymce@^5.0.0:
-  version "5.8.1"
-  resolved "https://registry.nlark.com/tinymce/download/tinymce-5.8.1.tgz#f6ace70e47cf6b5b0a63f52cf38e4ae04a35ba58"
-  integrity sha1-9qznDkfPa1sKY/Us845K4Eo1ulg=
+  version "5.9.0"
+  resolved "https://registry.npmmirror.com/tinymce/download/tinymce-5.9.0.tgz#c579ab337e315cc54f568f65d081002e6e1dc3e6"
+  integrity sha1-xXmrM34xXMVPVo9l0IEALm4dw+Y=
 
 tmp@^0.0.33:
   version "0.0.33"
