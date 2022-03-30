@@ -109,7 +109,7 @@
     ignore "^4.0.6"
     import-fresh "^3.2.1"
     js-yaml "^3.13.1"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
     strip-json-comments "^3.1.1"
 
 "@humanwhocodes/config-array@^0.5.0":
@@ -119,7 +119,7 @@
   dependencies:
     "@humanwhocodes/object-schema" "^1.2.0"
     debug "^4.1.1"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
 
 "@humanwhocodes/object-schema@^1.2.0":
   version "1.2.1"
@@ -238,7 +238,7 @@
   dependencies:
     "@lerna/child-process" "4.0.0"
     "@lerna/describe-ref" "4.0.0"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
     npmlog "^4.1.2"
     slash "^3.0.0"
 
@@ -303,7 +303,7 @@
     pify "^5.0.0"
     semver "^7.3.4"
     slash "^3.0.0"
-    validate-npm-package-license "^3.0.4"
+    validate-npm-package-license "^3.0.3"
     validate-npm-package-name "^3.0.0"
     whatwg-url "^8.4.0"
     yargs-parser "20.2.4"
@@ -778,7 +778,7 @@
     chalk "^4.1.0"
     dedent "^0.7.0"
     load-json-file "^6.2.0"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
     npmlog "^4.1.2"
     p-map "^4.0.0"
     p-pipe "^3.1.0"
@@ -993,7 +993,7 @@
   integrity sha512-rKN/VtZUUlW4M+6vjLFSaFc1Z9sK+1hh0832ucPtPkXqOw/mSWE80Lau4z2zTPNTqtxAjfZbvKpQcEwJy0KIEg==
   dependencies:
     fast-glob "^3.2.5"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
     mkdirp "^1.0.4"
     path-browserify "^1.0.1"
 
@@ -1003,8 +1003,8 @@
   integrity sha1-mKmTUWyFnrDVxMjwmDF6nqaNua0=
 
 "@types/minimatch@^3.0.3":
-  version "3.0.4"
-  resolved "https://registry.nlark.com/@types/minimatch/download/@types/minimatch-3.0.4.tgz?cache=0&sync_timestamp=1621241868071&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fminimatch%2Fdownload%2F%40types%2Fminimatch-3.0.4.tgz#f0ec25dbf2f0e4b18647313ac031134ca5b24b21"
+  version "3.0.3"
+  resolved "https://registry.nlark.com/@types/minimatch/download/@types/minimatch-3.0.3.tgz?cache=0&sync_timestamp=1621241868071&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fminimatch%2Fdownload%2F%40types%2Fminimatch-3.0.3.tgz#f0ec25dbf2f0e4b18647313ac031134ca5b24b21"
   integrity sha1-8Owl2/Lw5LGGRzE6wDETTKWySyE=
 
 "@types/minimist@^1.2.0":
@@ -2454,7 +2454,7 @@ eslint@^7.32.0:
     json-stable-stringify-without-jsonify "^1.0.1"
     levn "^0.4.1"
     lodash.merge "^4.6.2"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
     natural-compare "^1.4.0"
     optionator "^0.9.1"
     progress "^2.0.0"
@@ -2631,7 +2631,7 @@ file-entry-cache@^6.0.1:
   resolved "https://registry.npm.taobao.org/file-entry-cache/download/file-entry-cache-6.0.1.tgz?cache=0&sync_timestamp=1613794272556&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffile-entry-cache%2Fdownload%2Ffile-entry-cache-6.0.1.tgz#211b2dd9659cb0394b073e7323ac3c933d522027"
   integrity sha1-IRst2WWcsDlLBz5zI6w8kz1SICc=
   dependencies:
-    flat-cache "^3.0.4"
+    flat-cache "^3.0.3"
 
 fill-range@^7.0.1:
   version "7.0.1"
@@ -2668,9 +2668,9 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-flat-cache@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npm.taobao.org/flat-cache/download/flat-cache-3.0.4.tgz#61b0338302b2fe9f957dcc32fc2a87f1c3048b11"
+flat-cache@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npm.taobao.org/flat-cache/download/flat-cache-3.0.3.tgz#61b0338302b2fe9f957dcc32fc2a87f1c3048b11"
   integrity sha1-YbAzgwKy/p+Vfcwy/CqH8cMEixE=
   dependencies:
     flatted "^3.1.0"
@@ -2869,7 +2869,7 @@ glob@^7.0.0, glob@^7.1.1, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
     inherits "2"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -3055,11 +3055,11 @@ iconv-lite@^0.6.2:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
 ignore-walk@^3.0.3:
-  version "3.0.4"
-  resolved "https://registry.nlark.com/ignore-walk/download/ignore-walk-3.0.4.tgz?cache=0&sync_timestamp=1620340466361&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fignore-walk%2Fdownload%2Fignore-walk-3.0.4.tgz#c9a09f69b7c7b479a5d74ac1a3c0d4236d2a6335"
+  version "3.0.3"
+  resolved "https://registry.nlark.com/ignore-walk/download/ignore-walk-3.0.3.tgz?cache=0&sync_timestamp=1620340466361&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fignore-walk%2Fdownload%2Fignore-walk-3.0.3.tgz#c9a09f69b7c7b479a5d74ac1a3c0d4236d2a6335"
   integrity sha1-yaCfabfHtHml10rBo8DUI20qYzU=
   dependencies:
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
 
 ignore@^4.0.6:
   version "4.0.6"
@@ -3148,7 +3148,7 @@ init-package-json@^2.0.2:
     read "~1.0.1"
     read-package-json "^3.0.1"
     semver "^7.3.5"
-    validate-npm-package-license "^3.0.4"
+    validate-npm-package-license "^3.0.3"
     validate-npm-package-name "^3.0.0"
 
 inquirer@0.11.0:
@@ -3873,9 +3873,9 @@ min-indent@^1.0.0:
   resolved "https://registry.nlark.com/min-indent/download/min-indent-1.0.1.tgz#a63f681673b30571fbe8bc25686ae746eefa9869"
   integrity sha1-pj9oFnOzBXH76LwlaGrnRu76mGk=
 
-minimatch@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npm.taobao.org/minimatch/download/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
+minimatch@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npm.taobao.org/minimatch/download/minimatch-3.0.3.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
   dependencies:
     brace-expansion "^1.1.7"
@@ -4016,7 +4016,7 @@ multimatch@^5.0.0:
     array-differ "^3.0.0"
     array-union "^2.1.0"
     arrify "^2.0.1"
-    minimatch "^3.0.4"
+    minimatch "^3.0.3"
 
 mute-stream@0.0.5:
   version "0.0.5"
@@ -5866,9 +5866,9 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.npm.taobao.org/v8-compile-cache/download/v8-compile-cache-2.3.0.tgz?cache=0&sync_timestamp=1614993639567&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fv8-compile-cache%2Fdownload%2Fv8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
 
-validate-npm-package-license@^3.0.1, validate-npm-package-license@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.npm.taobao.org/validate-npm-package-license/download/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
+validate-npm-package-license@^3.0.1, validate-npm-package-license@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npm.taobao.org/validate-npm-package-license/download/validate-npm-package-license-3.0.3.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
   integrity sha1-/JH2uce6FchX9MssXe/uw51PQQo=
   dependencies:
     spdx-correct "^3.0.0"
