@@ -11,8 +11,8 @@
     "prepare": "husky install",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:add": "lerna add @panhezeng/vue-tinymce --scope=@panhezeng/vue-tinymce-example",
-    "lerna:publish": "lerna publish",
     "lerna:version": "lerna version",
+    "lerna:publish": "lerna publish",
     "commit": "commit",
     "build": "yarn component:build && yarn example:build",
     "update": "lerna exec --scope '@panhezeng/*' -- 'ncu -u --target minor && yarn install'"
