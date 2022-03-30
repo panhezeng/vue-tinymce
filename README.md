@@ -98,11 +98,8 @@ lerna exec --scope packagename
 
 lerna add packageaname --scope=packagebname
 
-npm set registry https://registry.npmjs.org/ && npm set @panhezeng:registry https://registry.npmjs.org/
-
 lerna publish
 
-npm set registry https://registry.npm.taobao.org/ && npm set @panhezeng:registry https://registry.npm.taobao.org/
 ```
 
 ## 环境
