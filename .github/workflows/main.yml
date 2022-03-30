@@ -1,14 +1,21 @@
-on: push
-
+name: Publish to NPM
+on:
+  push:
+    tags:
+      - *
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: 10
-      - run: npm install
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Publish package on NPM 📦
+        run: npm publish
+        working-directory: ./packages/component
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
