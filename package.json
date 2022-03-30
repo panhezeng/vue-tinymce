@@ -9,17 +9,19 @@
     "example:build": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn build",
     "format": "prettier --write \"*.{js,ts,jsx,tsx,vue,ts,tsx,html,css,less,md,json}\"",
     "prepare": "husky install",
+    "lerna:bootstrap": "lerna bootstrap",
     "lerna:add": "lerna add @panhezeng/vue-tinymce --scope=@panhezeng/vue-tinymce-example",
     "lerna:publish": "lerna publish",
     "lerna:version": "lerna version",
     "commit": "commit",
-    "build": "yarn component:build && yarn example:build"
+    "build": "yarn component:build && yarn example:build",
+    "update": "lerna exec --scope '@panhezeng/*' -- 'ncu -u --target minor && yarn install'"
   },
   "devDependencies": {
     "husky": "^6.0.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.1",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.6.1",
     "@commitlint/config-conventional": "^12.1.4",
     "@commitlint/prompt-cli": "^12.1.4"
   },

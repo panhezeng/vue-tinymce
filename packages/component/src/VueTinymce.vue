@@ -10,11 +10,10 @@ import {
   ref,
   nextTick,
   onBeforeUnmount,
-  watchEffect,
   onMounted,
   watch,
 } from "vue";
-import tinymce, { Editor, RawEditorSettings } from "tinymce";
+import tinymce, { Editor, RawEditorOptions } from "tinymce";
 export default defineComponent({
   name: "VueTinymce",
   props: {
@@ -31,11 +30,11 @@ export default defineComponent({
     // tinymce依赖文件的cdn url
     url: {
       type: String,
-      default: "https://cdn.jsdelivr.net/npm/tinymce@%5E5.0.0",
+      default: "https://cdn.jsdelivr.net/npm/tinymce@%5E6.0.1",
     },
     // tinymce的init方法的config参数，本组件有默认设置，比如不要toolbar3，可以使用该组件时写上 :config="{toolbar2:''}"
     config: {
-      type: Object as PropType<RawEditorSettings>,
+      type: Object as PropType<RawEditorOptions>,
       default() {
         return {};
       },
@@ -47,14 +46,14 @@ export default defineComponent({
       modelValue: string;
       updateEvent: string;
       url: string;
-      config: RawEditorSettings;
+      config: RawEditorOptions;
     },
     context
   ) {
     const editorElement = ref<HTMLElement | null>(null);
 
     let editor: null | Editor = null,
-      tinymceConfig: RawEditorSettings = {};
+      tinymceConfig: RawEditorOptions = {};
 
     function setTinymceConfig() {
       if (editorElement.value) {
@@ -73,8 +72,8 @@ export default defineComponent({
             indentation: "2px",
             fontsize_formats: "12px 14px 16px 18px 20px 24px",
             plugins:
-              "print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons",
-            contextmenu: "link image imagetools table",
+              "preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons",
+            contextmenu: "link image table",
             image_advtab: true,
             menubar: "file edit view insert format tools table help",
             // menubar: false,
@@ -111,21 +110,21 @@ export default defineComponent({
             tinymceConfig.font_formats =
               'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
             if (window.navigator.platform.indexOf("Win") > -1) {
-              tinymceConfig.font_formats =
-                '微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;' +
-                tinymceConfig.font_formats;
+              tinymceConfig.font_formats = `微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;${
+                tinymceConfig.font_formats || ""
+              }`;
               tinymceConfig.content_style =
                 'body { font-size: 14px; font-family: "Microsoft YaHei"; }';
             } else if (window.navigator.platform.indexOf("Mac") > -1) {
-              tinymceConfig.font_formats =
-                "黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;" +
-                tinymceConfig.font_formats;
+              tinymceConfig.font_formats = `黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;${
+                tinymceConfig.font_formats || ""
+              }`;
               tinymceConfig.content_style =
                 "body { font-size: 14px; font-family: STHeiti; }";
             } else if (window.navigator.platform.indexOf("Linux") > -1) {
-              tinymceConfig.font_formats =
-                '黑体="Source Han Sans SC";宋体="Source Han Serif SC";' +
-                tinymceConfig.font_formats;
+              tinymceConfig.font_formats = `黑体="Source Han Sans SC";宋体="Source Han Serif SC";${
+                tinymceConfig.font_formats || ""
+              }`;
               tinymceConfig.content_style =
                 'body { font-size: 14px; font-family: "Source Han Sans SC"; }';
             }
@@ -161,12 +160,7 @@ export default defineComponent({
           if (editorElement.value) {
             editor = instance;
             setContent();
-            editor.on(
-              props.updateEvent,
-              tinymce.util.Delay.debounce(() => {
-                contentChange();
-              }, 300)
-            );
+            editor.on(props.updateEvent, contentChange);
             if (typeof props.config.init_instance_callback === "function") {
               props.config.init_instance_callback(editor);
             }
