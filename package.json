@@ -14,15 +14,15 @@
     "lerna:version": "lerna version",
     "commit": "commit",
     "build": "yarn component:build && yarn example:build",
-    "update": "lerna exec --scope '@panhezeng/*' -- 'ncu -u --target minor && yarn install'"
+    "update": "lerna exec --scope '@panhezeng/*' -- 'ncu -u && yarn install'"
   },
   "devDependencies": {
-    "husky": "^6.0.0",
+    "husky": "^7.0.4",
     "lerna": "^4.0.0",
-    "lint-staged": "^11.2.6",
+    "lint-staged": "^12.3.7",
     "prettier": "^2.6.1",
-    "@commitlint/config-conventional": "^12.1.4",
-    "@commitlint/prompt-cli": "^12.1.4"
+    "@commitlint/config-conventional": "^16.2.1",
+    "@commitlint/prompt-cli": "^16.2.3"
   },
   "lint-staged": {
     "packages/example/src*/**/*.{js,ts,jsx,tsx,vue}": "yarn example:lint",
