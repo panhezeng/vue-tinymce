@@ -98,9 +98,11 @@ lerna exec --scope packagename
 
 lerna add packageaname --scope=packagebname
 
-lerna publish
-
 ```
+
+## 发版
+
+`lerna version`
 
 ## 环境
 
