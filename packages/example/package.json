@@ -1,6 +1,6 @@
 {
   "name": "@panhezeng/vue-tinymce-example",
-  "version": "3.0.5",
+  "version": "3.0.3",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "format": "prettier --write \"src*/**/*.{js,vue,ts,tsx,html,css,less,md,json}\""
   },
   "dependencies": {
-    "@panhezeng/vue-tinymce": "^3.0.5",
+    "@panhezeng/vue-tinymce": "^3.0.3",
     "tinymce": "^6.0.1",
     "vue": "^3.2.31"
   },

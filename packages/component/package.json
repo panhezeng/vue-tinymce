@@ -1,6 +1,6 @@
 {
   "name": "@panhezeng/vue-tinymce",
-  "version": "3.0.5",
+  "version": "3.0.3",
   "description": "A Vue component",
   "keywords": [
     "vuejs",
@@ -82,5 +82,5 @@
   "publishConfig": {
     "registry": "https://registry.npm.org/"
   },
-  "gitHead": "cb47a6ef537ee1845ee9d1181c86b7b2c9431e7e"
+  "gitHead": "cea3ba1118c29dd267619fe2b11adaa1f8ed35fa"
 }
