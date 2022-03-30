@@ -6,18 +6,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
         with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
-      - name: Publish package on NPM 📦
-        run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
-          npm publish
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@panhezeng'
+      - run: npm publish
         working-directory: ./packages/component
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
