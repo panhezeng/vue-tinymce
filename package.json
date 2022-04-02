@@ -25,8 +25,7 @@
     "@commitlint/prompt-cli": "^16.2.3"
   },
   "lint-staged": {
-    "packages/example/src*/**/*.{js,ts,jsx,tsx,vue}": "yarn example:lint",
-    "*.{js,ts,jsx,tsx,vue,html,css,less,md,json}": "yarn format"
+    "src*/**/*.{vue,js,jsx,ts,tsx}": "yarn run component:lint && yarn run example:lint"
   },
   "workspaces": [
     "packages/*"
