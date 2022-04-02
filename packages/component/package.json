@@ -84,8 +84,5 @@
     "registry": "https://registry.npmjs.org",
     "access": "public"
   },
-  "gitHead": "cea3ba1118c29dd267619fe2b11adaa1f8ed35fa",
-  "dependencies": {
-    "fast-glob": "^3.2.11"
-  }
+  "gitHead": "cea3ba1118c29dd267619fe2b11adaa1f8ed35fa"
 }
