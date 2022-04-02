@@ -61,6 +61,17 @@ export default {
 export default { components: { VueTinymce: window.VueTinymce }, };
 ```
 
+### 全局安装方式
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+import VueTinymce from "@panhezeng/vue-tinymce";
+const app = createApp(App);
+app.use(VueTinymce);
+app.mount("#app");
+```
+
 ## IDE
 
 ### WebStorm
@@ -125,7 +136,7 @@ lerna add packageaname --scope=packagebname
   安装 node
 
   ```shell
-  pnpm env use --global lts && pnpm install -g pnpm npm yarn npm-check-updates
+  pnpm env use --global lts && pnpm install -g pnpm npm yarn lerna npm-check-updates
   ```
 
   ```

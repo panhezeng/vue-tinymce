@@ -83,7 +83,7 @@ export default defineComponent({
               "formatselect | bold italic underline strikethrough | forecolor backcolor | textindent textoutdent | indent outdent | alignleft aligncenter alignright alignjustify | bullist numlist | anchor codesample | ltr rtl",
           },
           props.config
-        );
+        ) as RawEditorOptions;
         // ============================================================================
         const zhCN = "zh_CN";
         const enUS = "en_US";
@@ -138,11 +138,13 @@ export default defineComponent({
         if (!tinymceConfig.external_plugins["textindentoutdent"]) {
           const keys = Object.keys(tinymceConfig);
           for (let i = keys.length - 1; i >= 0; i--) {
-            const key = keys[i];
+            const key = keys[i] as keyof RawEditorOptions;
             // 如果 toolbar 配置了 textindent textoutdent 按钮，则加载 textindentoutdent 插件
             if (
+              key &&
+              typeof key === "string" &&
               key.indexOf("toolbar") !== -1 &&
-              /\btext(indent|outdent)\b/g.test(tinymceConfig[key])
+              /\btext(indent|outdent)\b/g.test(String(tinymceConfig[key]))
             ) {
               if (tinymceConfig.language === zhCN) {
                 tinymceConfig.external_plugins["textindentoutdentzhcn"] =

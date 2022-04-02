@@ -1,14 +1,12 @@
-const shell = require("shelljs");
+import "zx/globals";
+import  { Project } from "ts-morph";
+import { parse, compileScript } from "@vue/compiler-sfc";
+import {fileURLToPath} from 'url';
 
-const path = require("path");
-const fs = require("fs");
-const glob = require("fast-glob");
-const { Project } = require("ts-morph");
-const { parse, compileScript } = require("@vue/compiler-sfc");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let index = 1;
-
-main();
 
 async function main() {
   // 这部分内容具体可以查阅 ts-morph 的文档
@@ -103,8 +101,6 @@ async function main() {
   }
 }
 
-shell.cp(
-  "-rf",
-  path.resolve(__dirname, "../../../README.md"),
-  path.resolve(__dirname, "../README.md")
-);
+await main();
+
+await $`cp -rf ${path.resolve(__dirname, "../../../README.md")} ${path.resolve(__dirname, "../README.md")}`;

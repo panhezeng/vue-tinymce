@@ -34,9 +34,9 @@
     "url": "git+https://github.com/panhezeng/vue-tinymce.git"
   },
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build && node scripts/build.js",
-    "lint": "cross-env NODE_ENV=production eslint --fix --ext .js,.vue,.ts,.tsx ./",
-    "format": "prettier --write \"src*/**/*.{js,vue,ts,tsx,html,css,less,md,json}\""
+    "build": "vue-tsc --noEmit && vite build && node scripts/build.mjs",
+    "lint": "cross-env NODE_ENV=production eslint --fix \"src*/**/*.{vue,js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src*/**/*.{vue,js,jsx,ts,tsx,html,css,less,md,json}\""
   },
   "config": {},
   "devDependencies": {
@@ -56,7 +56,8 @@
     "typescript": "^4.6.3",
     "vite": "^2.8.6",
     "vue": "^3.2.31",
-    "vue-tsc": "^0.33.9"
+    "vue-tsc": "^0.33.9",
+    "zx": "^6.0.7"
   },
   "peerDependencies": {
     "tinymce": "^6.0.1",
@@ -83,5 +84,8 @@
     "registry": "https://registry.npmjs.org",
     "access": "public"
   },
-  "gitHead": "cea3ba1118c29dd267619fe2b11adaa1f8ed35fa"
+  "gitHead": "cea3ba1118c29dd267619fe2b11adaa1f8ed35fa",
+  "dependencies": {
+    "fast-glob": "^3.2.11"
+  }
 }

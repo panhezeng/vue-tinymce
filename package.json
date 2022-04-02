@@ -7,7 +7,7 @@
     "example:dev": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn dev",
     "example:lint": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn lint",
     "example:build": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn build",
-    "format": "prettier --write \"*.{js,ts,jsx,tsx,vue,ts,tsx,html,css,less,md,json}\"",
+    "format": "prettier --write \"*.{vue,js,jsx,ts,tsx,html,css,less,md,json}\"",
     "prepare": "husky install",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:add": "lerna add @panhezeng/vue-tinymce --scope=@panhezeng/vue-tinymce-example",

@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build && node scripts/build.js",
+    "build": "vue-tsc --noEmit && vite build && node scripts/build.mjs",
     "serve": "vite preview",
-    "lint": "cross-env NODE_ENV=production eslint --fix --ext .js,.vue,.ts,.tsx ./",
-    "format": "prettier --write \"src*/**/*.{js,vue,ts,tsx,html,css,less,md,json}\""
+    "lint": "cross-env NODE_ENV=production eslint --fix \"src*/**/*.{vue,js,jsx,ts,tsx}\"",
+    "format": "prettier --write \"src*/**/*.{vue,js,jsx,ts,tsx,html,css,less,md,json}\""
   },
   "dependencies": {
     "@panhezeng/vue-tinymce": "^3.0.4",
@@ -25,9 +25,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
     "prettier": "^2.6.1",
-    "shelljs": "^0.8.5",
     "typescript": "^4.6.3",
     "vite": "^2.8.6",
-    "vue-tsc": "^0.33.9"
+    "vue-tsc": "^0.33.9",
+    "zx": "^6.0.7"
   }
 }

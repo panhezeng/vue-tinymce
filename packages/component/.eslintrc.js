@@ -4,17 +4,6 @@ module.exports = {
   // This option interrupts the configuration hierarchy at this file
   // Remove this if you have an higher level ESLint config file (it usually happens into a monorepos)
   root: true,
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
-  env: {
-    browser: true,
-    node: true,
-  },
   globals: {
     ga: "readonly", // Google Analytics
     cordova: "readonly",
@@ -22,6 +11,17 @@ module.exports = {
     process: "readonly",
     Capacitor: "readonly",
     chrome: "readonly",
+  },
+  env: {
+    browser: true,
+    es2022: true,
+    node: true,
+  },
+  parserOptions: {
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   extends: ["eslint:recommended", "plugin:prettier/recommended"],
   overrides: [

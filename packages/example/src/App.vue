@@ -21,12 +21,12 @@
 <script lang="ts">
 import { defineComponent, reactive, computed } from "vue";
 
-import VueTinymce from "@panhezeng/vue-tinymce";
+// import VueTinymce from "@panhezeng/vue-tinymce";
 
 export default defineComponent({
   name: "App",
   components: {
-    VueTinymce,
+    // VueTinymce,
   },
   setup() {
     const data = reactive({ content: "init content", show: true, locale: "" });

@@ -1,32 +1,32 @@
 import {
-  d as _,
-  r as F,
-  w as k,
-  o as B,
-  t as f,
-  a as S,
-  n as m,
-  b as g,
-  c as y,
-  e as l,
-  f as w,
-  g as x,
-  h as C,
-  i as $,
-  j as T,
-  F as E,
-  k as A,
-  l as D,
-} from "./vendor.a213934e.js";
-const V = function () {
+  d as y,
+  r as S,
+  c as B,
+  a as b,
+  b as l,
+  t as w,
+  e as x,
+  f as C,
+  F as $,
+  g as T,
+  o as h,
+  h as E,
+  w as A,
+  i as D,
+  j as m,
+  k as V,
+  n as g,
+  l as O,
+} from "./vendor.e03175e4.js";
+const j = function () {
   const a = document.createElement("link").relList;
   if (a && a.supports && a.supports("modulepreload")) return;
   for (const e of document.querySelectorAll('link[rel="modulepreload"]')) n(e);
   new MutationObserver((e) => {
     for (const i of e)
       if (i.type === "childList")
-        for (const r of i.addedNodes)
-          r.tagName === "LINK" && r.rel === "modulepreload" && n(r);
+        for (const s of i.addedNodes)
+          s.tagName === "LINK" && s.rel === "modulepreload" && n(s);
   }).observe(document, { childList: !0, subtree: !0 });
   function o(e) {
     const i = {};
@@ -48,13 +48,93 @@ const V = function () {
     fetch(e.href, i);
   }
 };
-V();
-var O = (t, a) => {
+j();
+var z = (t, a) => {
   const o = t.__vccOpts || t;
   for (const [n, e] of a) o[n] = e;
   return o;
 };
-const j = _({
+const L = y({
+    name: "App",
+    components: {},
+    setup() {
+      const t = S({ content: "init content", show: !0, locale: "" }),
+        a = B(() => {
+          let n = {};
+          return t.locale === "en" && (n = { language: "en_US" }), n;
+        });
+      function o() {
+        t.locale ? (t.locale = "") : (t.locale = "en");
+      }
+      return { data: t, config: a, switchLanguage: o };
+    },
+  }),
+  M = l("h1", null, "VueTinymce example", -1),
+  H = l("br", null, null, -1),
+  N = l("br", null, null, -1),
+  q = l("br", null, null, -1),
+  U = l("br", null, null, -1),
+  K = l("h2", null, "output", -1),
+  P = ["innerHTML"];
+function W(t, a, o, n, e, i) {
+  const s = T("vue-tinymce");
+  return (
+    h(),
+    b(
+      $,
+      null,
+      [
+        M,
+        l(
+          "button",
+          { onClick: a[0] || (a[0] = (c) => (t.data.show = !t.data.show)) },
+          " \u70B9\u51FB\u52A0\u8F7D\u79FB\u9664\u7F16\u8F91\u5668\uFF0C\u6D4B\u8BD5\u521D\u59CB\u5316\u548C\u9500\u6BC1\uFF1A\uFF1A\uFF1A" +
+            w(t.data.show ? "\u9500\u6BC1" : "\u52A0\u8F7D"),
+          1
+        ),
+        H,
+        N,
+        l(
+          "button",
+          {
+            onClick:
+              a[1] ||
+              (a[1] = (...c) => t.switchLanguage && t.switchLanguage(...c)),
+          },
+          "\u70B9\u51FB\u5207\u6362\u8BED\u8A00\uFF0C\u6D4B\u8BD5\u66F4\u65B0config"
+        ),
+        q,
+        U,
+        t.data.show
+          ? (h(),
+            x(
+              s,
+              {
+                key: 0,
+                modelValue: t.data.content,
+                "onUpdate:modelValue":
+                  a[2] || (a[2] = (c) => (t.data.content = c)),
+                config: t.config,
+              },
+              null,
+              8,
+              ["modelValue", "config"]
+            ))
+          : C("", !0),
+        K,
+        l("div", { innerHTML: t.data.content }, null, 8, P),
+      ],
+      64
+    )
+  );
+}
+var I = z(L, [["render", W]]),
+  R = (t, a) => {
+    const o = t.__vccOpts || t;
+    for (const [n, e] of a) o[n] = e;
+    return o;
+  };
+const Y = y({
     name: "VueTinymce",
     props: {
       modelValue: { type: String, required: !0 },
@@ -75,7 +155,7 @@ const j = _({
     },
     emits: ["update:modelValue", "content-change"],
     setup(t, a) {
-      const o = F(null);
+      const o = E(null);
       let n = null,
         e = {};
       function i() {
@@ -103,16 +183,16 @@ const j = _({
             t.config
           );
           const u = "zh_CN",
-            b = "en_US";
-          if (e.language === b) delete e.language, delete e.language_url;
+            k = "en_US";
+          if (e.language === k) delete e.language, delete e.language_url;
           else {
             if (
               (e.language || (e.language = u),
               !e.language_url && e.language === u)
             ) {
-              let s = "https://cdn.jsdelivr.net/npm/";
-              /unpkg.com/.test(t.url) && (s = "https://unpkg.com/"),
-                (e.language_url = `${s}@panhezeng/vue-tinymce@latest/dist/langs/${e.language}.js`);
+              let r = "https://cdn.jsdelivr.net/npm/";
+              /unpkg.com/.test(t.url) && (r = "https://unpkg.com/"),
+                (e.language_url = `${r}@panhezeng/vue-tinymce@latest/dist/langs/${e.language}.js`);
             }
             !e.font_formats &&
               e.language === u &&
@@ -141,12 +221,14 @@ const j = _({
             (e.external_plugins || (e.external_plugins = {}),
             !e.external_plugins.textindentoutdent)
           ) {
-            const s = Object.keys(e);
-            for (let d = s.length - 1; d >= 0; d--) {
-              const v = s[d];
+            const r = Object.keys(e);
+            for (let f = r.length - 1; f >= 0; f--) {
+              const d = r[f];
               if (
-                v.indexOf("toolbar") !== -1 &&
-                /\btext(indent|outdent)\b/g.test(e[v])
+                d &&
+                typeof d == "string" &&
+                d.indexOf("toolbar") !== -1 &&
+                /\btext(indent|outdent)\b/g.test(String(e[d]))
               ) {
                 e.language === u &&
                   (e.external_plugins.textindentoutdentzhcn =
@@ -158,18 +240,18 @@ const j = _({
             }
           }
           (e.target = o.value),
-            (e.init_instance_callback = (s) => {
+            (e.init_instance_callback = (r) => {
               o.value &&
-                ((n = s),
-                r(),
+                ((n = r),
+                s(),
                 n.on(t.updateEvent, c),
                 typeof t.config.init_instance_callback == "function" &&
                   t.config.init_instance_callback(n));
             });
         }
       }
-      function r() {
-        m().then(() => {
+      function s() {
+        g().then(() => {
           o.value &&
             n &&
             n.getContent() !== t.modelValue &&
@@ -177,19 +259,19 @@ const j = _({
         });
       }
       function c() {
-        m().then(() => {
+        g().then(() => {
           if (o.value && n) {
             const u = n.getContent();
             a.emit("update:modelValue", u), a.emit("content-change", u);
           }
         });
       }
-      function p() {
+      function v() {
         try {
           o.value &&
             n &&
             (n.plugins.autosave && n.plugins.autosave.removeDraft(),
-            f.PluginManager.remove("autosave"),
+            m.PluginManager.remove("autosave"),
             n.remove(),
             n.destroy(),
             (n = null));
@@ -197,114 +279,40 @@ const j = _({
           return;
         }
       }
-      function h() {
-        m().then(() => {
-          o.value && (p(), i(), f.init(e));
+      function _() {
+        g().then(() => {
+          o.value && (v(), i(), m.init(e));
         });
       }
       return (
-        k(
+        A(
           () => t.config,
           () => {
-            h();
+            _();
           },
           { deep: !0 }
         ),
-        B(() => {
-          (f.EditorManager.baseURL = t.url), h();
+        D(() => {
+          (m.EditorManager.baseURL = t.url), _();
         }),
-        S(() => {
-          p();
+        V(() => {
+          v();
         }),
         { editorElement: o }
       );
     },
   }),
-  z = { class: "vue-tinymce-comp" },
-  L = { ref: "editorElement" };
-function M(t, a, o, n, e, i) {
-  return g(), y("div", z, [l("textarea", L, null, 512)]);
+  G = { class: "vue-tinymce-comp" },
+  J = { ref: "editorElement" };
+function Q(t, a, o, n, e, i) {
+  return h(), b("div", G, [l("textarea", J, null, 512)]);
 }
-var H = O(j, [["render", M]]),
-  N = (t, a) => {
-    const o = t.__vccOpts || t;
-    for (const [n, e] of a) o[n] = e;
-    return o;
-  };
-const q = _({
-    name: "App",
-    components: { VueTinymce: H },
-    setup() {
-      const t = w({ content: "init content", show: !0, locale: "" }),
-        a = x(() => {
-          let n = {};
-          return t.locale === "en" && (n = { language: "en_US" }), n;
-        });
-      function o() {
-        t.locale ? (t.locale = "") : (t.locale = "en");
-      }
-      return { data: t, config: a, switchLanguage: o };
+var p = R(Y, [["render", Q]]);
+const X = Object.assign(p, {
+    install: (t) => {
+      t.component(p.name, p);
     },
   }),
-  U = l("h1", null, "VueTinymce example", -1),
-  K = l("br", null, null, -1),
-  P = l("br", null, null, -1),
-  W = l("br", null, null, -1),
-  I = l("br", null, null, -1),
-  R = l("h2", null, "output", -1),
-  Y = ["innerHTML"];
-function G(t, a, o, n, e, i) {
-  const r = A("vue-tinymce");
-  return (
-    g(),
-    y(
-      E,
-      null,
-      [
-        U,
-        l(
-          "button",
-          { onClick: a[0] || (a[0] = (c) => (t.data.show = !t.data.show)) },
-          " \u70B9\u51FB\u52A0\u8F7D\u79FB\u9664\u7F16\u8F91\u5668\uFF0C\u6D4B\u8BD5\u521D\u59CB\u5316\u548C\u9500\u6BC1\uFF1A\uFF1A\uFF1A" +
-            C(t.data.show ? "\u9500\u6BC1" : "\u52A0\u8F7D"),
-          1
-        ),
-        K,
-        P,
-        l(
-          "button",
-          {
-            onClick:
-              a[1] ||
-              (a[1] = (...c) => t.switchLanguage && t.switchLanguage(...c)),
-          },
-          "\u70B9\u51FB\u5207\u6362\u8BED\u8A00\uFF0C\u6D4B\u8BD5\u66F4\u65B0config"
-        ),
-        W,
-        I,
-        t.data.show
-          ? (g(),
-            $(
-              r,
-              {
-                key: 0,
-                modelValue: t.data.content,
-                "onUpdate:modelValue":
-                  a[2] || (a[2] = (c) => (t.data.content = c)),
-                config: t.config,
-              },
-              null,
-              8,
-              ["modelValue", "config"]
-            ))
-          : T("", !0),
-        R,
-        l("div", { innerHTML: t.data.content }, null, 8, Y),
-      ],
-      64
-    )
-  );
-}
-var J = N(q, [["render", G]]);
-const Q = D(J);
-Q.mount("#app");
+  F = O(I);
+F.use(X);
+F.mount("#app");
