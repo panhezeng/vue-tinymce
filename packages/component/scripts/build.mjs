@@ -37,7 +37,7 @@ async function main() {
         // 提取出 script 中的内容
         const { script, scriptSetup } = sfc.descriptor;
 
-        if (script || scriptSetup) {
+        if ((script && script.lang) || (scriptSetup && scriptSetup.lang)) {
           const compiled = compileScript(sfc.descriptor, {
             id: `${index++}`,
           });
