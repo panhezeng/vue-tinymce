@@ -16,3 +16,4 @@ dist-ssr
 *.njsproj
 *.sln
 
+!packages/component/dist
