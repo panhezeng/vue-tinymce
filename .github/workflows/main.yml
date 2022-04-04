@@ -18,7 +18,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@panhezeng'
-      - run: npm run build && npm publish
+      - run: npm install && npm run build && npm publish
         working-directory: ./packages/component
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
