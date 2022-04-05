@@ -26,7 +26,8 @@
     "package.json",
     "README"
   ],
-  "main": "dist/vue-tinymce.es.js",
+  "main": "./dist/vue-tinymce.es.js",
+  "typings": "./dist/index.d.ts",
   "bin": {},
   "repository": {
     "type": "git",
