@@ -5,24 +5,24 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-    <script>
-      (function () {
-        if (location.search) {
-          var paramName = "?spa_redirect=";
-          if (location.search.indexOf(paramName) !== -1) {
-            var url =
-              "/vue-tinymce" +
-              decodeURIComponent(location.search.replace(paramName, ""));
-            // console.log(url);
-            history.replaceState(null, null, url);
-          }
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="./assets/index.07d65cb1.js"></script>
-    <link rel="modulepreload" href="./assets/vendor.e03175e4.js" />
+    <script>(function () {
+  if (location.search) {
+    var paramName = "?spa_redirect=";
+    if (location.search.indexOf(paramName) !== -1) {
+      var url =
+        "/vue-tinymce" +
+        decodeURIComponent(location.search.replace(paramName, ""));
+      // console.log(url);
+      history.replaceState(null, null, url);
+    }
+  }
+})();
+</script>
+   <script type="module" crossorigin src="./assets/index.d2921ef0.js"></script>
+    <link rel="modulepreload" href="./assets/vendor.e03175e4.js">
   </head>
   <body>
     <div id="app"></div>
+    
   </body>
 </html>

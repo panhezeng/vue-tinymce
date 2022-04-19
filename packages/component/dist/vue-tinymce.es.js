@@ -47,8 +47,7 @@ const _sfc_main = defineComponent({
           contextmenu: "link image table",
           image_advtab: true,
           menubar: "file edit view insert format tools table help",
-          toolbar1: "code | undo redo | fontsizeselect fontselect | blockquote hr | removeformat link unlink pastetext | pagebreak | charmap emoticons | fullscreen preview save print | insertfile image media template",
-          toolbar2: "formatselect | bold italic underline strikethrough | forecolor backcolor | textindent textoutdent | indent outdent | alignleft aligncenter alignright alignjustify | bullist numlist | anchor codesample | ltr rtl"
+          toolbar: "undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl"
         }, props.config);
         const zhCN = "zh_CN";
         const enUS = "en_US";
