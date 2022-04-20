@@ -12,22 +12,22 @@
   "dependencies": {
     "@panhezeng/vue-tinymce": "^3.0.8",
     "tinymce": "^6.0.1",
-    "vue": "^3.2.31"
+    "vue": "^3.2.33"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
-    "@vitejs/plugin-vue": "^2.2.4",
-    "@vue/compiler-sfc": "^3.2.31",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "@vue/compiler-sfc": "^3.2.33",
     "cross-env": "^7.0.3",
-    "eslint": "^8.12.0",
+    "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.5.0",
-    "prettier": "^2.6.1",
+    "eslint-plugin-vue": "^8.6.0",
+    "prettier": "^2.6.2",
     "typescript": "^4.6.3",
-    "vite": "^2.8.6",
-    "vue-tsc": "^0.33.9",
-    "zx": "^6.0.7"
+    "vite": "^2.9.5",
+    "vue-tsc": "^0.34.7",
+    "zx": "^6.1.0"
   }
 }
