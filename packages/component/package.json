@@ -27,14 +27,14 @@
     "README"
   ],
   "main": "./dist/vue-tinymce.es.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "bin": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/panhezeng/vue-tinymce.git"
   },
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build && node scripts/build.mjs",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly && node scripts/build.mjs",
     "lint": "cross-env NODE_ENV=production eslint --fix \"src*/**/*.{vue,js,jsx,ts,tsx}\"",
     "format": "prettier --write \"src*/**/*.{vue,js,jsx,ts,tsx,html,css,less,md,json}\""
   },
