@@ -27,11 +27,10 @@ module.exports = {
   // `parser: 'vue-eslint-parser'` is already included with any 'plugin:vue/**' config and should be omitted
   parserOptions: {
     parser: {
-      // Script parser for `<script>`
       js: '@babel/eslint-parser',
-      // Script parser for `<script lang="ts">`
+      jsx: '@babel/eslint-parser',
       ts: '@typescript-eslint/parser',
-      '<template>': '@babel/eslint-parser',
+      tsx: '@typescript-eslint/parser',
     },
     // parser: require.resolve('@typescript-eslint/parser'),
     extraFileExtensions: ['.vue'],

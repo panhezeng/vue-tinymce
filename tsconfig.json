@@ -17,8 +17,8 @@
     //    "types": [],
     "baseUrl": "./packages",
     "paths": {
-      //      "@panhezeng/vue-tinymce": ["./component/dist/vue-tinymce.es.js"]
-      "@panhezeng/vue-tinymce": ["./component/src"]
+      //      "@panhezeng/vue-tinymce": ["component/dist"]
+      "@panhezeng/vue-tinymce": ["component/src"]
     }
   },
   "exclude": ["dist/**/*", "node_modules"]

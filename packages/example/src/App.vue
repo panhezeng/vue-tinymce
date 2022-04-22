@@ -1,7 +1,7 @@
 <template>
   <h1>VueTinymce example</h1>
   <button @click="data.show = !data.show">
-    点击加载移除编辑器，测试初始化和销毁：：：{{ data.show ? "销毁" : "加载" }}
+    点击加载移除编辑器，测试初始化和销毁：：：{{ data.show ? '销毁' : '加载' }}
   </button>
   <br />
   <br />
@@ -19,29 +19,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed } from "vue";
+import { defineComponent, reactive, computed } from 'vue';
 
 // import VueTinymce from "@panhezeng/vue-tinymce";
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
   components: {
     // VueTinymce,
   },
   setup() {
-    const data = reactive({ content: "init content", show: true, locale: "" });
+    const data = reactive({ content: 'init content', show: true, locale: '' });
     const config = computed(() => {
       let language = {};
-      if (data.locale === "en") {
-        language = { language: "en_US" };
+      if (data.locale === 'en') {
+        language = { language: 'en_US' };
       }
       return language;
     });
     function switchLanguage() {
       if (data.locale) {
-        data.locale = "";
+        data.locale = '';
       } else {
-        data.locale = "en";
+        data.locale = 'en';
       }
     }
     return { data, config, switchLanguage };
