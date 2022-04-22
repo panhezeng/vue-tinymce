@@ -1,4 +1,4 @@
-import type { App } from "vue";
+import type { App } from 'vue';
 declare const VueTinymce: {
     new (...args: any[]): {
         $: import("vue").ComponentInternalInstance;
