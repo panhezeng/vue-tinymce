@@ -27,7 +27,7 @@
     "README"
   ],
   "main": "./dist/vue-tinymce.es.js",
-  "typings": "./dist/types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "bin": {},
   "repository": {
     "type": "git",
