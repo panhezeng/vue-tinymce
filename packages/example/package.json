@@ -1,6 +1,6 @@
 {
   "name": "@panhezeng/vue-tinymce-example",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -10,17 +10,17 @@
     "format": "prettier --write \"src*/**/*.{vue,js,jsx,ts,tsx,html,css,less,md,json}\""
   },
   "dependencies": {
-    "@panhezeng/vue-tinymce": "^3.0.9",
+    "@panhezeng/vue-tinymce": "^3.0.10",
     "tinymce": "^6.0.2",
     "vue": "^3.2.33"
   },
   "devDependencies": {
-    "@vue/babel-preset-app": "^5.0.4",
     "@babel/core": "^7.17.12",
     "@babel/eslint-parser": "^7.17.0",
     "@typescript-eslint/eslint-plugin": "^5.24.0",
     "@typescript-eslint/parser": "^5.24.0",
     "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/babel-preset-app": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.33",
     "cross-env": "^7.0.3",
     "eslint": "^8.15.0",
