@@ -83,6 +83,10 @@ export default defineComponent({
           props.config
         ) as RawEditorOptions;
         // ============================================================================
+        let cdnUrl = 'https://cdn.jsdelivr.net/npm/';
+        if (/unpkg.com/.test(props.url)) {
+          cdnUrl = 'https://unpkg.com/';
+        }
         const zhCN = 'zh_CN';
         const enUS = 'en_US';
         // 如果配置为默认英语，则删除语言相关配置节点
@@ -96,11 +100,7 @@ export default defineComponent({
           }
           // 如果没有配置 language_url ，并且是 zhCN ，则使用本项目的语言包
           if (!tinymceConfig.language_url && tinymceConfig.language === zhCN) {
-            let langCDN = 'https://cdn.jsdelivr.net/npm/';
-            if (/unpkg.com/.test(props.url)) {
-              langCDN = 'https://unpkg.com/';
-            }
-            tinymceConfig.language_url = `${langCDN}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
+            tinymceConfig.language_url = `${cdnUrl}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
           }
 
           // 如果没有配置 font_formats ，并且是 zhCN ，则使用内部配置
@@ -145,11 +145,13 @@ export default defineComponent({
               /\btext(indent|outdent)\b/g.test(String(tinymceConfig[key]))
             ) {
               if (tinymceConfig.language === zhCN) {
-                tinymceConfig.external_plugins['textindentoutdentzhcn'] =
-                  'https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js';
+                tinymceConfig.external_plugins[
+                  'textindentoutdentzhcn'
+                ] = `${cdnUrl}@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js`;
               }
-              tinymceConfig.external_plugins['textindentoutdent'] =
-                'https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js';
+              tinymceConfig.external_plugins[
+                'textindentoutdent'
+              ] = `${cdnUrl}@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js`;
               break;
             }
           }

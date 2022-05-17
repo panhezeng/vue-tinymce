@@ -1,5 +1,5 @@
-import { PropType } from "vue";
-import { RawEditorOptions } from "tinymce";
+import { PropType } from 'vue';
+import { RawEditorOptions } from 'tinymce';
 declare const _default: import("vue").DefineComponent<{
     modelValue: {
         type: StringConstructor;

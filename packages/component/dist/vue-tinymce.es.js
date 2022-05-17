@@ -49,6 +49,10 @@ const _sfc_main = defineComponent({
           menubar: "file edit view insert format tools table help",
           toolbar: "undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl"
         }, props.config);
+        let cdnUrl = "https://cdn.jsdelivr.net/npm/";
+        if (/unpkg.com/.test(props.url)) {
+          cdnUrl = "https://unpkg.com/";
+        }
         const zhCN = "zh_CN";
         const enUS = "en_US";
         if (tinymceConfig.language === enUS) {
@@ -59,11 +63,7 @@ const _sfc_main = defineComponent({
             tinymceConfig.language = zhCN;
           }
           if (!tinymceConfig.language_url && tinymceConfig.language === zhCN) {
-            let langCDN = "https://cdn.jsdelivr.net/npm/";
-            if (/unpkg.com/.test(props.url)) {
-              langCDN = "https://unpkg.com/";
-            }
-            tinymceConfig.language_url = `${langCDN}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
+            tinymceConfig.language_url = `${cdnUrl}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
           }
           if (!tinymceConfig.font_formats && tinymceConfig.language === zhCN) {
             tinymceConfig.font_formats = 'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
@@ -88,9 +88,9 @@ const _sfc_main = defineComponent({
             const key = keys[i];
             if (key && typeof key === "string" && key.indexOf("toolbar") !== -1 && /\btext(indent|outdent)\b/g.test(String(tinymceConfig[key]))) {
               if (tinymceConfig.language === zhCN) {
-                tinymceConfig.external_plugins["textindentoutdentzhcn"] = "https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js";
+                tinymceConfig.external_plugins["textindentoutdentzhcn"] = `${cdnUrl}@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js`;
               }
-              tinymceConfig.external_plugins["textindentoutdent"] = "https://cdn.jsdelivr.net/npm/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js";
+              tinymceConfig.external_plugins["textindentoutdent"] = `${cdnUrl}@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js`;
               break;
             }
           }
