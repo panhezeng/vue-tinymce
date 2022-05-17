@@ -19,7 +19,7 @@
 
 setup 和 init_instance_callback 的区别，虽然两个 API 都能获得 TinyMCE 实例，但前者是实例刚创建时的回调，后者是实例初始化完成时的回调，init_instance_callback 获得的实例才能使用 setContent 等 API。
 
-**现在本组件基于 TinyMCE ~5 版本，TinyMCE 依赖的 js 和 css 也是 ~5 版本，依赖已锁定为 tinymce ~5，不会出现 tinymce 大版本升级造成本组件无法运行的问题。本组件也没有太复杂的东西，放心使用，如果有需求，可以 fork 修改。**
+**现在本组件基于 TinyMCE ~6 版本，TinyMCE 依赖的 js 和 css 也是 ~6 版本，依赖已锁定为 tinymce ~6，不会出现 tinymce 大版本升级造成本组件无法运行的问题。本组件也没有太复杂的东西，放心使用，如果有需求，可以 fork 修改。**
 
 **之前基于 TinyMCE ~4 版本的版本已经不能使用，请先`npm uninstall vue-tinymce tinymce`，重新 `npm install vue-tinymce tinymce`，并且清除浏览器缓存。**
 
