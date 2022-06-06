@@ -24,7 +24,7 @@ const _sfc_main = defineComponent({
     },
     baseUrl: {
       type: String,
-      default: "https://unpkg.com/"
+      default: "https://unpkg.com"
     },
     config: {
       type: Object,
@@ -64,7 +64,7 @@ const _sfc_main = defineComponent({
             tinymceConfig.language = zhCN;
           }
           if (!tinymceConfig.language_url && tinymceConfig.language === zhCN) {
-            tinymceConfig.language_url = `${baseUrl}@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
+            tinymceConfig.language_url = `${baseUrl}/@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
           }
           if (!tinymceConfig.font_formats && tinymceConfig.language === zhCN) {
             tinymceConfig.font_formats = 'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
@@ -89,9 +89,9 @@ const _sfc_main = defineComponent({
             const key = keys[i];
             if (key && typeof key === "string" && key.indexOf("toolbar") !== -1 && /\btext(indent|outdent)\b/g.test(String(tinymceConfig[key]))) {
               if (tinymceConfig.language === zhCN) {
-                tinymceConfig.external_plugins["textindentoutdentzhcn"] = `${baseUrl}@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js`;
+                tinymceConfig.external_plugins["textindentoutdentzhcn"] = `${baseUrl}/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js`;
               }
-              tinymceConfig.external_plugins["textindentoutdent"] = `${baseUrl}@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js`;
+              tinymceConfig.external_plugins["textindentoutdent"] = `${baseUrl}/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js`;
               break;
             }
           }
