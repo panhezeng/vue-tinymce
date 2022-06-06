@@ -28,7 +28,7 @@ props: {
     // tinymce 依赖文件的cdn base url
     baseUrl: {
       type: String,
-      default: 'https://unpkg.com/',
+      default: 'https://unpkg.com',
     },
     // tinymce的init方法的config参数，本组件有默认设置，比如不要toolbar3，可以使用该组件时写上 :config="{toolbar2:''}"
     config: {
@@ -56,7 +56,7 @@ public/static/tinymce-langs/zh_CN.js
 props:{
   url: {
     type: String,
-    default: '/static/tinymce/',
+    default: '/static/tinymce',
   },
 }
 
