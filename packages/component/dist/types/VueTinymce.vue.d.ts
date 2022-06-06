@@ -13,6 +13,10 @@ declare const _default: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    baseUrl: {
+        type: StringConstructor;
+        default: string;
+    };
     config: {
         type: PropType<RawEditorOptions>;
         default(): {};
@@ -32,6 +36,10 @@ declare const _default: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    baseUrl: {
+        type: StringConstructor;
+        default: string;
+    };
     config: {
         type: PropType<RawEditorOptions>;
         default(): {};
@@ -42,6 +50,7 @@ declare const _default: import("vue").DefineComponent<{
 }, {
     updateEvent: string;
     url: string;
+    baseUrl: string;
     config: RawEditorOptions;
 }>;
 export default _default;

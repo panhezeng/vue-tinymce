@@ -8,6 +8,70 @@
 示例代码目录 packages/example
 
 ## 说明
+```
+props: {
+    // 父组件通过 v-model 同步富文本编辑器内容
+    modelValue: {
+      type: String,
+      required: true,
+    },
+    // 触发 v-model 同步更新的 tinymce Editor Events，其他 https://www.tiny.cloud/docs/advanced/events/
+    updateEvent: {
+      type: String,
+      default: 'beforeaddundo undo redo keyup focusout',
+    },
+    // tinymce依赖文件的cdn url
+    url: {
+      type: String,
+      default: 'https://unpkg.com/tinymce@%5E6.0.1',
+    },
+    // tinymce 依赖文件的cdn base url
+    baseUrl: {
+      type: String,
+      default: 'https://unpkg.com/',
+    },
+    // tinymce的init方法的config参数，本组件有默认设置，比如不要toolbar3，可以使用该组件时写上 :config="{toolbar2:''}"
+    config: {
+      type: Object as PropType<RawEditorOptions>,
+      default() {
+        return {};
+      },
+    },
+  }
+```
+
+**默认 cdn 改为 unpkg 了，jsdelivr 被墙了，注意 unpkg 不支持 combine js**
+**可以把tinymce相关文件都拷贝到本地 public 目录，然后把 url 改为项目 public url**
+本地示例
+```
+public/static
+public/static/tinymce
+public/static/tinymce-external-plugins
+public/static/tinymce-external-plugins/textindentoutdent
+public/static/tinymce-external-plugins/textindentoutdent/langs
+public/static/tinymce-external-plugins/textindentoutdent/plugin.min.js
+public/static/tinymce-langs
+public/static/tinymce-langs/zh_CN.js
+
+props:{
+  url: {
+    type: String,
+    default: '/static/tinymce/',
+  },
+}
+
+const tinymceConfig: RawEditorOptions = {
+    language: 'zh_CN',
+    language_url: '/static/tinymce-langs/zh_CN.js',
+    external_plugins: {
+      textindentoutdentzhcn:
+        '/static/tinymce-external-plugins/textindentoutdent/langs/zh_CN.js',
+      textindentoutdent:
+        '/static/tinymce-external-plugins/textindentoutdent/plugin.min.js',
+    },
+  };  
+```
+
 
 本打算将原项目个人封装的 TinyMCE Vue 组件替换为官方 TinyMCE Vue 组件，尝试后发现官方组件严重依赖 TinyMCE Cloud，否则不好用。
 
@@ -15,7 +79,7 @@
 
 本组件只是简单封装，没有多余功能，默认语言中文 language: 'zh_CN'。
 
-使用本组件的优势，相对于官方 TinyMCE Vue 组件来说：不用在项目中 import TinyMCE 的模板和插件 js，通过https://cdn.jsdelivr.net/npm/tinymce@~5实现了同步版本资源，默认中文配置，自动销毁等。
+使用本组件的优势，相对于官方 TinyMCE Vue 组件来说：不用在项目中 import TinyMCE 的模板和插件 js，通过https://cdn.jsdelivr.net/npm/tinymce@~6  https://unpkg.com/tinymce@%5E6.0.1 实现了同步版本资源，默认中文配置，自动销毁等。
 
 setup 和 init_instance_callback 的区别，虽然两个 API 都能获得 TinyMCE 实例，但前者是实例刚创建时的回调，后者是实例初始化完成时的回调，init_instance_callback 获得的实例才能使用 setContent 等 API。
 

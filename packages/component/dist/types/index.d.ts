@@ -6,6 +6,7 @@ declare const VueTinymce: {
         $props: Partial<{
             updateEvent: string;
             url: string;
+            baseUrl: string;
             config: import("tinymce").RawEditorOptions;
         }> & Omit<Readonly<import("vue").ExtractPropTypes<{
             modelValue: {
@@ -20,6 +21,10 @@ declare const VueTinymce: {
                 type: StringConstructor;
                 default: string;
             };
+            baseUrl: {
+                type: StringConstructor;
+                default: string;
+            };
             config: {
                 type: import("vue").PropType<import("tinymce").RawEditorOptions>;
                 default(): {};
@@ -27,7 +32,7 @@ declare const VueTinymce: {
         }>> & {
             "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
             "onContent-change"?: ((...args: any[]) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "updateEvent" | "url" | "config">;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "updateEvent" | "url" | "baseUrl" | "config">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -54,6 +59,10 @@ declare const VueTinymce: {
                 type: StringConstructor;
                 default: string;
             };
+            baseUrl: {
+                type: StringConstructor;
+                default: string;
+            };
             config: {
                 type: import("vue").PropType<import("tinymce").RawEditorOptions>;
                 default(): {};
@@ -66,6 +75,7 @@ declare const VueTinymce: {
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "content-change")[], string, {
             updateEvent: string;
             url: string;
+            baseUrl: string;
             config: import("tinymce").RawEditorOptions;
         }> & {
             beforeCreate?: ((() => void) | (() => void)[]) | undefined;
@@ -100,6 +110,10 @@ declare const VueTinymce: {
             type: StringConstructor;
             default: string;
         };
+        baseUrl: {
+            type: StringConstructor;
+            default: string;
+        };
         config: {
             type: import("vue").PropType<import("tinymce").RawEditorOptions>;
             default(): {};
@@ -109,7 +123,7 @@ declare const VueTinymce: {
         "onContent-change"?: ((...args: any[]) => any) | undefined;
     } & import("vue").ShallowUnwrapRef<{
         editorElement: import("vue").Ref<HTMLElement | null>;
-    }> & {} & {} & import("vue").ComponentCustomProperties;
+    }> & {} & import("vue").ComponentCustomProperties;
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
@@ -126,6 +140,10 @@ declare const VueTinymce: {
         type: StringConstructor;
         default: string;
     };
+    baseUrl: {
+        type: StringConstructor;
+        default: string;
+    };
     config: {
         type: import("vue").PropType<import("tinymce").RawEditorOptions>;
         default(): {};
@@ -138,6 +156,7 @@ declare const VueTinymce: {
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "content-change")[], "update:modelValue" | "content-change", {
     updateEvent: string;
     url: string;
+    baseUrl: string;
     config: import("tinymce").RawEditorOptions;
 }> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & {
     install: (app: App) => void;
