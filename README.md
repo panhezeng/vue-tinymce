@@ -44,7 +44,6 @@ props: {
 **可以把tinymce相关文件都拷贝到本地 public 目录，然后把 url 改为项目 public url**
 本地示例
 ```
-public/static
 public/static/tinymce
 public/static/tinymce-external-plugins
 public/static/tinymce-external-plugins/textindentoutdent
