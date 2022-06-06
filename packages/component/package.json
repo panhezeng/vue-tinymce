@@ -67,8 +67,8 @@
     "vue": "^3.2.36"
   },
   "engines": {
-    "node": ">=12",
-    "npm": ">=6",
+    "node": ">=14",
+    "npm": ">=8",
     "yarn": ">=1"
   },
   "private": false,
