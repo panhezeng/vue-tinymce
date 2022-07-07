@@ -226,6 +226,8 @@ export default defineComponent({
       });
     }
 
+    watch(() => props.modelValue, setContent);
+
     watch(
       () => props.config,
       () => {
