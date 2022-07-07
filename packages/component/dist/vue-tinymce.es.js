@@ -20,7 +20,7 @@ const _sfc_main = defineComponent({
     },
     url: {
       type: String,
-      default: "https://unpkg.com/tinymce@%5E6.0.3"
+      default: "https://unpkg.com/tinymce@%5E6.1.0"
     },
     baseUrl: {
       type: String,
@@ -149,6 +149,7 @@ const _sfc_main = defineComponent({
         }
       });
     }
+    watch(() => props.modelValue, setContent);
     watch(() => props.config, () => {
       init();
     }, { deep: true });

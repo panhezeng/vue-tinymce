@@ -30,7 +30,7 @@ export default defineComponent({
     // tinymce依赖文件的cdn url
     url: {
       type: String,
-      default: 'https://unpkg.com/tinymce@%5E6.0.3',
+      default: 'https://unpkg.com/tinymce@%5E6.1.0',
     },
     // tinymce 依赖文件的cdn base url
     baseUrl: {
