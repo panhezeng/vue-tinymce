@@ -17,6 +17,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'VueTinymce',
       fileName: 'vue-tinymce',
+      formats: ['es', 'umd'],
     },
     rollupOptions: {
       // 请确保外部化那些你的库中不需要的依赖

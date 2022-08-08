@@ -14,11 +14,11 @@
     "lerna:version": "lerna version",
     "commit": "commit",
     "build": "yarn component:build && yarn example:build",
-    "update": "lerna exec --scope '@panhezeng/*' -- 'ncu -u && yarn install'"
+    "update": "ncu -u && yarn install && lerna exec --scope '@panhezeng/*' -- 'ncu -u && yarn install'"
   },
   "devDependencies": {
     "husky": "^8.0.1",
-    "lerna": "^5.1.7",
+    "lerna": "^5.3.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "@commitlint/config-conventional": "^17.0.3",
