@@ -13,7 +13,7 @@ const B = y({
     },
     url: {
       type: String,
-      default: "https://unpkg.com/tinymce@%5E6.1.0"
+      default: "https://unpkg.com/tinymce@%5E6.1.2"
     },
     baseUrl: {
       type: String,
