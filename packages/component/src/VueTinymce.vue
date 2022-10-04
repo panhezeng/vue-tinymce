@@ -30,7 +30,7 @@ export default defineComponent({
     // tinymce依赖文件的cdn url
     url: {
       type: String,
-      default: 'https://unpkg.com/tinymce@%5E6.1.2',
+      default: 'https://unpkg.com/tinymce@%5E6.2.0',
     },
     // tinymce 依赖文件的cdn base url
     baseUrl: {
@@ -75,16 +75,16 @@ export default defineComponent({
             // theme_url: `${this.url}/themes/silver/theme.min.js`,
             // skin_url: `${this.url}/skins/ui/oxide`,
             branding: false,
+            promotion: true,
             indentation: '2px',
-            fontsize_formats: '12px 14px 16px 18px 20px 24px',
+            font_size_formats: '12px 14px 16px 18px 20px 24px',
             plugins:
               'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
             contextmenu: 'link image table',
             image_advtab: true,
             menubar: 'file edit view insert format tools table help',
-            // menubar: false,
             toolbar:
-              'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample code | ltr rtl',
+              'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
           },
           props.config
         ) as RawEditorOptions;
@@ -106,25 +106,28 @@ export default defineComponent({
             tinymceConfig.language_url = `${baseUrl}/@panhezeng/vue-tinymce@latest/dist/langs/${tinymceConfig.language}.js`;
           }
 
-          // 如果没有配置 font_formats ，并且是 zhCN ，则使用内部配置
-          if (!tinymceConfig.font_formats && tinymceConfig.language === zhCN) {
-            tinymceConfig.font_formats =
+          // 如果没有配置 font_family_formats ，并且是 zhCN ，则使用内部配置
+          if (
+            !tinymceConfig.font_family_formats &&
+            tinymceConfig.language === zhCN
+          ) {
+            tinymceConfig.font_family_formats =
               'Andale Mono="andale mono", times;Arial=arial, helvetica, sans-serif;Arial Black="arial black", "avant garde";Book Antiqua="book antiqua", palatino;Comic Sans MS="comic sans ms", sans-serif;Courier New="courier new", courier;Georgia=georgia, palatino;Helvetica=helvetica;Impact=impact, chicago;Symbol=symbol;Tahoma=tahoma, arial, helvetica, sans-serif;Terminal=terminal, monaco;Times New Roman="times new roman",times;Trebuchet MS="trebuchet ms", geneva;Verdana=verdana, geneva;Webdings=webdings;Wingdings=wingdings';
             if (window.navigator.platform.indexOf('Win') > -1) {
-              tinymceConfig.font_formats = `微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;${
-                tinymceConfig.font_formats || ''
+              tinymceConfig.font_family_formats = `微软雅黑="Microsoft YaHei";黑体=SimHei;宋体=SimSun;仿宋=FangSong;楷体=KaiTi;${
+                tinymceConfig.font_family_formats || ''
               }`;
               tinymceConfig.content_style =
                 'body { font-size: 14px; font-family: "Microsoft YaHei"; }';
             } else if (window.navigator.platform.indexOf('Mac') > -1) {
-              tinymceConfig.font_formats = `黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;${
-                tinymceConfig.font_formats || ''
+              tinymceConfig.font_family_formats = `黑体=STHeiti;宋体=STSong;仿宋=STFangsong;楷体=STKaiti;${
+                tinymceConfig.font_family_formats || ''
               }`;
               tinymceConfig.content_style =
                 'body { font-size: 14px; font-family: STHeiti; }';
             } else if (window.navigator.platform.indexOf('Linux') > -1) {
-              tinymceConfig.font_formats = `黑体="Source Han Sans SC";宋体="Source Han Serif SC";${
-                tinymceConfig.font_formats || ''
+              tinymceConfig.font_family_formats = `黑体="Source Han Sans SC";宋体="Source Han Serif SC";${
+                tinymceConfig.font_family_formats || ''
               }`;
               tinymceConfig.content_style =
                 'body { font-size: 14px; font-family: "Source Han Sans SC"; }';
@@ -170,6 +173,7 @@ export default defineComponent({
               props.config.init_instance_callback(editor);
             }
           }
+          hideAd();
         };
       }
     }
@@ -235,6 +239,13 @@ export default defineComponent({
       },
       { deep: true }
     );
+
+    function hideAd() {
+      const adElement = document.querySelector('.tox-promotion');
+      if (adElement) {
+        (adElement as HTMLElement).style.display = 'none';
+      }
+    }
 
     onMounted(() => {
       // 从指定url加载tinymce依赖文件
