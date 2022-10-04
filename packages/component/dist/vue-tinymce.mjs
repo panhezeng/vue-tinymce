@@ -62,10 +62,8 @@ const B = x({
             }
           }
         }
-        e.target = a.value, e.setup = () => {
-          b();
-        }, e.init_instance_callback = (r) => {
-          a.value && (t = r, d(), t.on(n.updateEvent, v), typeof n.config.init_instance_callback == "function" && n.config.init_instance_callback(t));
+        e.target = a.value, e.init_instance_callback = (r) => {
+          a.value && (t = r, d(), t.on(n.updateEvent, v), typeof n.config.init_instance_callback == "function" && n.config.init_instance_callback(t)), b();
         };
       }
     }
