@@ -1,0 +1,10 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "include": ["**/**.json", "**/**.d.ts", "./*.ts"],
+  "compilerOptions": {
+    "composite": true,
+    "types": ["node"],
+    "noImplicitAny": false,
+    "allowJs": true
+  }
+}

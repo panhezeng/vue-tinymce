@@ -1,6 +1,6 @@
-import { createApp } from 'vue';
-import App from './App.vue';
 import VueTinymce from '@panhezeng/vue-tinymce';
+import {createApp} from 'vue';
+import App from './App.vue';
 
 const app = createApp(App);
 

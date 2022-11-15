@@ -17,10 +17,12 @@
     "update": "ncu -u && yarn install && lerna exec --scope '@panhezeng/*' -- 'ncu -u && yarn install'"
   },
   "devDependencies": {
-    "husky": "^8.0.1",
-    "lerna": "^5.5.4",
+    "husky": "^8.0.2",
+    "lerna": "^6.0.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.2.0",
+    "prettier-plugin-packagejson": "^2.3.0",
     "@commitlint/config-conventional": "^17.1.0",
     "@commitlint/prompt-cli": "^17.1.2"
   },

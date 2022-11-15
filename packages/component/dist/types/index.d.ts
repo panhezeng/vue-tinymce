@@ -70,9 +70,7 @@ declare const VueTinymce: {
         }>> & {
             "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
             "onContent-change"?: ((...args: any[]) => any) | undefined;
-        }, {
-            editorElement: import("vue").Ref<HTMLElement | null>;
-        }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "content-change")[], string, {
+        }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "content-change")[], string, {
             updateEvent: string;
             url: string;
             baseUrl: string;
@@ -121,9 +119,7 @@ declare const VueTinymce: {
     }>> & {
         "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
         "onContent-change"?: ((...args: any[]) => any) | undefined;
-    } & import("vue").ShallowUnwrapRef<{
-        editorElement: import("vue").Ref<HTMLElement | null>;
-    }> & {} & import("vue").ComponentCustomProperties;
+    } & import("vue").ShallowUnwrapRef<{}> & {} & import("vue").ComponentCustomProperties;
     __isFragment?: undefined;
     __isTeleport?: undefined;
     __isSuspense?: undefined;
@@ -151,9 +147,7 @@ declare const VueTinymce: {
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
     "onContent-change"?: ((...args: any[]) => any) | undefined;
-}, {
-    editorElement: import("vue").Ref<HTMLElement | null>;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "content-change")[], "update:modelValue" | "content-change", {
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "content-change")[], "update:modelValue" | "content-change", {
     updateEvent: string;
     url: string;
     baseUrl: string;

@@ -1,16 +1,30 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": [
+    "**/**.json",
+    "**/**.d.ts",
+    "src/**/*.vue",
     "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "exclude": [
-    "dist/**/*",
-    "node_modules"
+    "src/**/*.tsx"
   ],
   "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "declaration": true,
-    "declarationDir": "dist/types"
-  }
+    "declarationDir": "dist/types",
+    "noImplicitAny": false,
+    "allowJs": true
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

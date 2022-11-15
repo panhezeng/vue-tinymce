@@ -1,4 +1,4 @@
-import type { App } from 'vue';
+import type {App} from 'vue';
 import _VueTinymce from './VueTinymce.vue';
 
 // 提供 app.use 注册组件方法

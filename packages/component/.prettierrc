@@ -1,4 +1,23 @@
 {
+  "printWidth": 100,
+  "semi": true,
   "singleQuote": true,
-  "semi": true
+  "overrides": [
+    {
+      "files": ["**/*.css", "**/*.scss", "**/*.less", "**/*.html"],
+      "options": {
+        "singleQuote": false
+      }
+    },
+    { "files": ".prettierrc", "options": { "parser": "json" } }
+  ],
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-packagejson"],
+  "trailingComma": "all",
+  "bracketSpacing": false,
+  "arrowParens": "avoid",
+  "proseWrap": "never",
+  "htmlWhitespaceSensitivity": "strict",
+  "vueIndentScriptAndStyle": false,
+  "endOfLine": "lf",
+  "singleAttributePerLine": true
 }
