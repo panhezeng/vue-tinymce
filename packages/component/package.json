@@ -72,7 +72,7 @@
     "prettier-plugin-organize-imports": "^3.2.0",
     "prettier-plugin-packagejson": "^2.3.0",
     "ssh2shell": "^2.0.6",
-    "stylelint": "^14.15.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-order": "^5.0.0",
