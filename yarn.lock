@@ -8045,9 +8045,9 @@ through@2, "through@>=2.2.7 <3", through@^2.3.4, through@^2.3.6, through@^2.3.8,
   integrity sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==
 
 tinymce@^6.2.0:
-  version "6.3.1"
-  resolved "https://registry.npmmirror.com/tinymce/-/tinymce-6.3.1.tgz#cc5cf2b9f702d429cf5d1d21ed62245d768bfc4f"
-  integrity sha512-+oCwXuTxAdJXVJ0130OxQz0JDNsqg3deuzgeUo8X5Vb27EzCJgXwO5eWvCxvkxpQo4oiHMVlM4tUIpTUHufHGQ==
+  version "6.7.1"
+  resolved "https://registry.npmmirror.com/tinymce/-/tinymce-6.7.1.tgz#62038eb298cfaeb4ffc7aae4d90401fc0bf9d7d7"
+  integrity sha512-SIGJgWk2d/X59VbO+i81QfNx2EP1P5t+sza2/1So3OLGtmMBhEJMag7sN/Mo8sq4s0niwb65Z51yLju32jP11g==
 
 tmp@^0.0.33:
   version "0.0.33"
