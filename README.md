@@ -78,7 +78,7 @@ const tinymceConfig: RawEditorOptions = {
 
 本组件只是简单封装，没有多余功能，默认语言中文 language: 'zh_CN'。
 
-使用本组件的优势，相对于官方 TinyMCE Vue 组件来说：不用在项目中 import TinyMCE 的模板和插件 js，通过https://cdn.jsdelivr.net/npm/tinymce@~7  https://unpkg.com/tinymce@%5E6.0.1 实现了同步版本资源，默认中文配置，自动销毁等。
+使用本组件的优势，相对于官方 TinyMCE Vue 组件来说：不用在项目中 import TinyMCE 的模板和插件 js，通过https://cdn.jsdelivr.net/npm/tinymce@~7  https://unpkg.com/tinymce@%5E7.3.0 实现了同步版本资源，默认中文配置，自动销毁等。
 
 setup 和 init_instance_callback 的区别，虽然两个 API 都能获得 TinyMCE 实例，但前者是实例刚创建时的回调，后者是实例初始化完成时的回调，init_instance_callback 获得的实例才能使用 setContent 等 API。
 
@@ -156,7 +156,6 @@ lerna.json
 ```
   "version": "independent",  // 不同模块不同版本
   "npmClient": "yarn",  // 指定 npmClent 为 yarn
-  "useWorkspaces": true // 将 useWorkspaces 设置为 true
 ```
 
 顶层的 package.json
@@ -170,7 +169,7 @@ lerna.json
 ```
 lerna exec --scope packagename
 
-lerna add packageaname --scope=packagebname
+yarn add packageaname -w=packagebname
 
 ```
 
@@ -186,22 +185,4 @@ lerna add packageaname --scope=packagebname
 
   ```shell
   rm -rf node_modules package-lock.json yarn.lock pnpm-lock.yaml
-  ```
-
-- 初始化前端环境
-
-  安装 pnpm _Mac 建议使用 `brew install pnpm`_
-
-  ```shell
-  curl -fsSL https://get.pnpm.io/install.sh | sh -
-  ```
-
-  安装 node
-
-  ```shell
-  pnpm env use --global lts && pnpm install -g pnpm npm yarn lerna npm-check-updates
-  ```
-
-  ```
-  /Users/panhezeng/Library/pnpm/nodejs/16.14.2/pnpm-global/5/node_modules/yarn
   ```
