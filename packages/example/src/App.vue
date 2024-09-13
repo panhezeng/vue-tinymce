@@ -16,7 +16,7 @@
   <!--    <vue-tinymce-->
   <!--      :content.sync="data.content"-->
   <!--      :config="config"-->
-  <!--      url="https://unpkg.com/tinymce@~6"-->
+  <!--      url="https://unpkg.com/tinymce@~7"-->
   <!--    />-->
   <h2>output</h2>
   <div v-html="data.content" />

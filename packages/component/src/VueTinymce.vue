@@ -23,7 +23,7 @@ const props = defineProps({
   // tinymce依赖文件的cdn url
   url: {
     type: String,
-    default: 'https://unpkg.com/tinymce@%5E6.2.0',
+    default: 'https://unpkg.com/tinymce@%5E7.3.0',
   },
   // tinymce 依赖文件的cdn base url
   baseUrl: {
@@ -64,12 +64,12 @@ function setTinymceConfig() {
         indentation: '2px',
         font_size_formats: '12px 14px 16px 18px 20px 24px',
         plugins:
-          'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+          'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
         contextmenu: 'link image table',
         image_advtab: true,
         menubar: 'file edit view insert format tools table help',
         toolbar:
-          'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+          'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media link anchor codesample | ltr rtl',
       },
       props.config,
     ) as RawEditorOptions;
@@ -131,13 +131,11 @@ function setTinymceConfig() {
           /\btext(indent|outdent)\b/g.test(String(tinymceConfig[key]))
         ) {
           if (tinymceConfig.language === zhCN) {
-            tinymceConfig.external_plugins[
-              'textindentoutdentzhcn'
-            ] = `${baseUrl}/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js`;
+            tinymceConfig.external_plugins['textindentoutdentzhcn'] =
+              `${baseUrl}/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/langs/zh_CN.js`;
           }
-          tinymceConfig.external_plugins[
-            'textindentoutdent'
-          ] = `${baseUrl}/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js`;
+          tinymceConfig.external_plugins['textindentoutdent'] =
+            `${baseUrl}/@panhezeng/tinymce-plugin-text-indent-outdent@latest/dist/textindentoutdent/plugin.min.js`;
           break;
         }
       }

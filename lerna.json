@@ -6,6 +6,5 @@
       "conventionalCommits": false
     }
   },
-  "npmClient": "yarn",
-  "useWorkspaces": true
+  "npmClient": "yarn"
 }

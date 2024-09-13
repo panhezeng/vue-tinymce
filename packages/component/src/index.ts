@@ -5,7 +5,7 @@ import _VueTinymce from './VueTinymce.vue';
 
 const VueTinymce = Object.assign(_VueTinymce, {
   install: (app: App) => {
-    app.component(_VueTinymce.name, _VueTinymce);
+    app.component(_VueTinymce.name || '', _VueTinymce);
   },
 });
 

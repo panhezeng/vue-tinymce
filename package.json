@@ -8,23 +8,22 @@
     "example:lint": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn lint",
     "example:build": "lerna exec --scope @panhezeng/vue-tinymce-example -- yarn build",
     "format": "prettier --write \"*.{vue,js,jsx,ts,tsx,html,css,less,md,json}\"",
-    "prepare": "husky install",
-    "lerna:bootstrap": "lerna bootstrap",
-    "lerna:add": "lerna add @panhezeng/vue-tinymce --scope=@panhezeng/vue-tinymce-example",
+    "lerna:add": "yarn add @panhezeng/vue-tinymce -w=@panhezeng/vue-tinymce-example",
     "lerna:version": "lerna version",
     "commit": "commit",
     "build": "yarn component:build && yarn example:build",
-    "update": "ncu -u && yarn install && lerna exec --scope '@panhezeng/*' -- 'ncu -u && yarn install'"
+    "update": "ncu -u && yarn install && lerna exec --scope '@panhezeng/*' -- 'ncu -u && yarn install'",
+    "prepare": "husky"
   },
   "devDependencies": {
-    "husky": "^8.0.2",
-    "lerna": "^6.0.3",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "prettier-plugin-organize-imports": "^3.2.0",
-    "prettier-plugin-packagejson": "^2.3.0",
-    "@commitlint/config-conventional": "^17.2.0",
-    "@commitlint/prompt-cli": "^17.2.0"
+    "husky": "^9.1.6",
+    "lerna": "^8.1.8",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "prettier-plugin-organize-imports": "^4.0.0",
+    "prettier-plugin-packagejson": "^2.5.2",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/prompt-cli": "^19.5.0"
   },
   "lint-staged": {
     "src*/**/*.{vue,js,jsx,ts,tsx}": "yarn run component:lint && yarn run example:lint"
